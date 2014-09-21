@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Neo flasktaskr</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/styles.css') }}">
+    </head>
+    <body>
+        <div class="page">
+            {% for message in get_flashed_messages() %}
+                <div class="flash">{{message}}</div>
+            {% endfor %}
+            {% if error %}
+                <p><font color="red"><strong>Error:</strong> {{error}}</font></p>
+            {% endif %}
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
